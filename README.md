@@ -44,6 +44,9 @@ Each transaction record includes:
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6a7f4685-632c-4f48-93fe-a84ec500f3b9" />
 
 
+
+
+CONTRACT ADDRESS= https://celo-sepolia.blockscout.com/tx/0x039ff33935d89c436308b0315f0eb0a005e9d958bdc2c911674c1c67ea8cd197
 ## 🚀 How to Deploy on Remix
 
 1. Open [Remix Ethereum IDE](https://remix.ethereum.org)
