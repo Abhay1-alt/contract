@@ -47,45 +47,6 @@ Each transaction record includes:
 
 
 CONTRACT ADDRESS= https://celo-sepolia.blockscout.com/tx/0x039ff33935d89c436308b0315f0eb0a005e9d958bdc2c911674c1c67ea8cd197
-## 🚀 How to Deploy on Remix
 
-1. Open [Remix Ethereum IDE](https://remix.ethereum.org)
-2. Create a new file named `Fillloos.sol`
-3. Copy and paste the full contract code:
 
-   ```solidity
-   // SPDX-License-Identifier: MIT
-   pragma solidity ^0.8.0;
 
-   contract Fillloos {
-       struct Transaction {
-           uint256 amount;
-           string txnType;
-           uint256 timestamp;
-       }
-
-       mapping(address => uint256) public balances;
-       mapping(address => Transaction[]) private transactionHistory;
-
-       function deposit() external payable {
-           require(msg.value > 0, "Deposit must be greater than 0");
-           balances[msg.sender] += msg.value;
-           transactionHistory[msg.sender].push(Transaction(msg.value, "Deposit", block.timestamp));
-       }
-
-       function withdraw(uint256 amount) external {
-           require(amount > 0, "Withdrawal must be greater than 0");
-           require(balances[msg.sender] >= amount, "Insufficient balance");
-           balances[msg.sender] -= amount;
-           payable(msg.sender).transfer(amount);
-           transactionHistory[msg.sender].push(Transaction(amount, "Withdraw", block.timestamp));
-       }
-
-       function getBalance() external view returns (uint256) {
-           return balances[msg.sender];
-       }
-
-       function getTransactionHistory() external view returns (Transaction[] memory) {
-           return transactionHistory[msg.sender];
-       }
-   }
